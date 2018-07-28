@@ -1,10 +1,12 @@
 // @flow
 import { combineReducers } from 'redux';
-import authReducers from './authentication.reducer'
+import authReducers from './authentication.reducer';
+import placeReducers from './place.reducer';
 import type {AuthState} from './authentication.reducer';
 
 const reducers  = {
-    authReducers
+    auth: authReducers,
+    places: placeReducers
 };
 
 

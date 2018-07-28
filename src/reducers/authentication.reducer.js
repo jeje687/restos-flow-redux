@@ -1,6 +1,4 @@
 // @flow
-
-import createReducer from '../utils/createReducer'
 import type {AuthenticateAction, LoadAction} from '../actions/authentication.action';
 import type {Action} from '../actions';
 
@@ -18,17 +16,14 @@ let authenticateReducer =  (state : AuthState, action : AuthenticateAction ) : A
     let newState : AuthState = Object.assign({}, state, {
         user: action.user,
         credentials: action.credentials,
-        authenticate : action.authenticated,
-        loading : false
+        authenticate : action.authenticated
     });
-    debugger;
     return newState || state;
 }
 
 let loadingReducer = (state: AuthState, action: LoadAction) : AuthState => {
     let newState : AuthState = Object.assign({}, state,{
-        loading : action.loading,
-        authenticate : state.authenticate
+        loading : action.loading
     });
     return newState || state;
 }

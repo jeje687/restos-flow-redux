@@ -1,7 +1,7 @@
 // @flow
 
 import {StyleSheet} from 'react-native';
-import type {stylePropType} from '../../utils/StylesType';
+import type {stylePropType} from '@utils/StylesType';
 
 type Styles = {
     container: stylePropType,

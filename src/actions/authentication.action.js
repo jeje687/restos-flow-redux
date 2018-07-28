@@ -4,9 +4,10 @@ import type {
     GetState,
     Dispatch
 } from './../../App'
-import AuthenticationServices from '../model/services/authenticate';
-import type {User} from '../model/Entity/User';
-import type {Credentials} from '../model/Entity/Credentials';
+import AuthenticationServices from '@model/services/authenticate';
+import type {User} from '@model/Entity/User';
+import type {Credentials} from '@model/Entity/Credentials';
+import {batchActions} from 'redux-batched-actions';
 
 import type {Action} from './index';
 export type AuthenticateAction = {
@@ -25,7 +26,12 @@ export function authenticate() {
     return async (dispatch: Dispatch, getState : GetState) => {
         try {
             let {credentials, user} = await AuthenticationServices.authenticate();
-            dispatch(setAuthenticated(true, credentials, user));
+            dispatch(
+                batchActions([
+                    setAuthenticated(true, credentials, user),
+                    setLoading(false)
+                ], 'LOGIN_SUCCESS')
+            );
             return {credentials : credentials, user : user};
         }
         catch(error){

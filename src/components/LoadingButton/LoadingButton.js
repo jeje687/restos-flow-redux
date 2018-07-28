@@ -78,6 +78,7 @@ export default class LoadingButton extends Component<Props, State> {
     };
 
     render() {
+        console.log("Loading button : render");
         return (
             <Animated.View
                 style={[styles.container, {width: this.state.width}]}

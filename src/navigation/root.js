@@ -1,13 +1,14 @@
 import { StackNavigator } from 'react-navigation';
+import {mainLayout} from "./mainLayout";
 
-import LoginViewModel from './../screens/Login/LoginViewModel';
+import Login from '@screens/Login';
 
 const stackNavigatorConfig = {
-  initialRouteName: 'Login',
+  initialRouteName: 'Home',
 };
 
 export default StackNavigator({
-    Login: {
-        screen: LoginViewModel,
+    Home: {
+        screen: mainLayout,
     },
 }, stackNavigatorConfig);

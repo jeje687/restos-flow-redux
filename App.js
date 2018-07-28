@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import {Provider} from 'react-redux';
+import {batchDispatchMiddleware, enableBatching} from 'redux-batched-actions';
 import {
     createStore,
     applyMiddleware,
@@ -14,11 +15,12 @@ import {
     Store as ReduxStore,
     Dispatch as ReduxDispatch,
 } from 'redux';
+import reduxMulti from 'redux-multi';
 import type {Action} from './src/actions';
 import type {State} from './src/reducers';
 import thunkMiddleware from 'redux-thunk'
 import {createLogger} from 'redux-logger'
-import RootNavigation from './src/navigation/root';
+import MainLayout from './src/navigation/mainLayout';
 import reducer from './src/reducers';
 
 export type Store = ReduxStore<State, Action>;
@@ -36,9 +38,10 @@ function configureStore() : Store {
     applyMiddleware(
       thunkMiddleware, // lets us dispatch() functions
       loggerMiddleware,
+      reduxMulti
     ),
   );
-  return createStore(reducer, enhancer);
+  return createStore(enableBatching(reducer), enhancer);
 }
 
 const store : Store = configureStore();
@@ -56,7 +59,7 @@ export default class App extends Component<Props> {
     render() {
         return (
             <Provider store={store}>
-                <RootNavigation/>
+                <MainLayout/>
             </Provider>
         );
     }
