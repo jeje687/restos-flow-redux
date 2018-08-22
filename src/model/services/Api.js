@@ -6,7 +6,7 @@ export const apiPlace = axios.create({
     timeout: 5000
 });
 
-const PLACE_KEY = "AIzaSyDxoDihhxReOcp_E_gJ68RGljkHntFnvUM";
+export const PLACE_KEY = "AIzaSyDxoDihhxReOcp_E_gJ68RGljkHntFnvUM";
 
 apiPlace.interceptors.request.use(
     function(config) {

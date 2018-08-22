@@ -4,7 +4,7 @@ import type {Photo} from "./Photo";
 import type {PlaceType} from "./PlaceType";
 
 export type Place = {|
-    geometry: Geometry,
+    geometry: Geometry | number,
     icon: string,
     id: string,
     name: string,

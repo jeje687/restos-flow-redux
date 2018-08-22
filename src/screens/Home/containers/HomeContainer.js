@@ -5,11 +5,13 @@ import { View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { setPlaces } from "@actions/place.action";
 import { bindActionCreators } from "redux";
-import { Home } from "./../views/Home";
-import type {State as GlobalState} from "@reducers";
-import type {Location} from "@model/Entity/Location";
+import { Home } from "../views/Home";
+import type { State as GlobalState } from "@reducers";
+import type { Location } from "@model/Entity/Location";
+import type {Place} from "@model/Entity/Place";
 
 interface Props {
+    places : {[key:string]:Place};
     setPlaces: (
         location: Location,
         radius: number,
@@ -19,6 +21,8 @@ interface Props {
 }
 interface State {}
 class HomeContainer extends Component<Props, State> {
+    props: Props;
+
     componentWillMount() {
         this.props.setPlaces(
             { lat: 44.8535869, lng: 4.9223852 },
@@ -47,4 +51,7 @@ function mapStateToProps(state: GlobalState) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HomeContainer);

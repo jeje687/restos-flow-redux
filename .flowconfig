@@ -28,7 +28,7 @@ node_modules/react-native/flow-github/
 
 [options]
 emoji=true
-
+module.name_mapper='^@screens' ->'<PROJECT_ROOT>/src/screens'
 module.system=haste
 
 munge_underscores=true
