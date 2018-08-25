@@ -1,10 +1,11 @@
 {
   "name": "MyMovies",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release -d"
   },
   "dependencies": {
     "flow-typed": "^2.4.0",
@@ -31,9 +32,18 @@
     "babel-preset-react-native": "4.0.0",
     "flow-bin": "^0.67.1",
     "jest": "22.4.3",
-    "react-test-renderer": "16.3.1"
+    "last-release-git": "^0.0.3",
+    "react-test-renderer": "16.3.1",
+    "semantic-release": "^15.9.9"
+  },
+  "release": {
+    "getLastRelease": "last-release-git"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeje687/restos-flow-redux.git"
   }
 }
