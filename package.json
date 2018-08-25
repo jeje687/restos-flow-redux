@@ -1,11 +1,11 @@
 {
   "name": "MyMovies",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "semantic-release": "semantic-release -d"
+    "create-release": "npx node-env-run --exec \"semantic-release --ci false\""
   },
   "dependencies": {
     "flow-typed": "^2.4.0",
@@ -33,8 +33,7 @@
     "flow-bin": "^0.67.1",
     "jest": "22.4.3",
     "last-release-git": "^0.0.3",
-    "react-test-renderer": "16.3.1",
-    "semantic-release": "^15.9.9"
+    "react-test-renderer": "16.3.1"
   },
   "release": {
     "getLastRelease": "last-release-git"
