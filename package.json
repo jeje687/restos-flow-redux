@@ -7,6 +7,16 @@
     "test": "jest",
     "create-release": "npx node-env-run --exec \"semantic-release --ci false\""
   },
+  "release": {
+    "analyzeCommits": {
+      "preset": "ember",
+      "releaseRules": [
+        {"type": "readme", "scope":"README", "release": "patch"},
+        {"type": "refactor", "release": "patch"},
+        {"type": "style", "release": "patch"}
+      ]
+    }
+  },
   "dependencies": {
     "flow-typed": "^2.4.0",
     "lottie-react-native": "2.3.2",
@@ -35,19 +45,6 @@
     "jest": "22.4.3",
     "last-release-git": "^0.0.3",
     "react-test-renderer": "16.3.1"
-  },
-  "release": {
-    "getLastRelease": "last-release-git",
-    "analyzeCommits": {
-      "preset": "ember",
-      "parserOpts": {
-        "noteKeywords": [
-          "BREAKING CHANGE",
-          "BREAKING CHANGES",
-          "BREAKING"
-        ]
-      }
-    }
   },
   "jest": {
     "preset": "react-native"
